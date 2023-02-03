@@ -19,9 +19,8 @@ export const createSqsQueue = async (body : string) => {
 
   try {
     const data = await sqsClient.send(new CreateQueueCommand(params));
-    console.log('Success', data);
     return data; // For unit tests.
-  } catch (err) {
-    console.log('Error', err);
+  } catch (err : any ) {
+    throw err
   }
 };

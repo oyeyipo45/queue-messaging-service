@@ -1,11 +1,15 @@
+import { CreateQueueInterface } from '../dtos/create.queue.dto';
 import { createSqsQueue } from '../helpers/queues/create.queue.helper';
 
-export const createQueues = async (body: string): Promise<any> => {
+export const createQueues = async (body: CreateQueueInterface): Promise<any> => {
   try {
-    const queues = await createSqsQueue(body);
+    const { name }: CreateQueueInterface = body;
 
-    console.log(queues, 'queues');
-  } catch (error) {
-    console.log(error, 'error');
+    const queues = await createSqsQueue(name);
+
+      console.log(queues, 'queues');
+      return queues
+  } catch (error : any ) {
+    throw error
   }
 };

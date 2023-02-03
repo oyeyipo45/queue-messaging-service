@@ -10,7 +10,9 @@ export const createQueue = async (req: Request, res: Response, next: NextFunctio
     res.status(201).json({
       queue,
     });
-  } catch (error) {
-    throw error;
+  } catch (error : any ) {
+     res.status(500).json({
+       message : error?.message,
+     });
   }
 };
