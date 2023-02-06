@@ -16,3 +16,36 @@ export const createQueue = async (req: Request, res: Response, next: NextFunctio
      });
   }
 };
+
+
+export const createMessage = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const body = req.body;
+
+    const message = await QueueService.createMessages(body);
+
+    res.status(201).json({
+      message,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      message: error?.message,
+    });
+  }
+};
+
+export const consumeMessage = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const body = req.body;
+
+    const message = await QueueService.createMessages(body);
+
+    res.status(201).json({
+      message,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      message: error?.message,
+    });
+  }
+};

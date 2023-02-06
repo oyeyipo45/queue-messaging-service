@@ -9,6 +9,8 @@ import { config } from '../../config/config';
 
 export const createSqsQueue = async (body : string) => {
 
+  console.log(body, "dgfdfvhdvfdfd");
+  
     const params = {
       QueueName: body, //SQS_QUEUE_URL
       Attributes: {
