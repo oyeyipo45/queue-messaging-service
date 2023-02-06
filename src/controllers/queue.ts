@@ -38,7 +38,7 @@ export const consumeMessage = async (req: Request, res: Response, next: NextFunc
   try {
     const body = req.body;
 
-    const message = await QueueService.createMessages(body);
+    const message = await QueueService.consumeMessage(body);
 
     res.status(201).json({
       message,

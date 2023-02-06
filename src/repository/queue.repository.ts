@@ -34,10 +34,9 @@ export const createMessages = async (body: CreateMessageInterface): Promise<any>
 
 export const consumeMessages = async (body: any): Promise<any> => {
   try {
-    const queues = await consumeMessagesHandler(body);
+    const message = await consumeMessagesHandler(body);
 
-    console.log(queues, 'queues2');
-    return queues;
+    return message;
   } catch (error: any) {
     throw error;
   }
